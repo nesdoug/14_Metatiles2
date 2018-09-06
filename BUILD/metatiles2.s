@@ -29,8 +29,8 @@
 	.import		_get_ppu_addr
 	.import		_set_data_pointer
 	.import		_set_mt_pointer
-	.import		_buffer_4_mt
 	.import		_buffer_1_mt
+	.import		_buffer_4_mt
 	.import		_flush_vram_update_nmi
 	.export		_RoundSprL
 	.export		_RoundSprR
