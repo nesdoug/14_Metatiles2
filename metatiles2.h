@@ -4,7 +4,6 @@
 #pragma bss-name(push, "ZEROPAGE")
 
 // GLOBAL VARIABLES
-unsigned char sprid; // remember the index into the sprite buffer
 unsigned char pad1;
 unsigned char pad1_new;
 unsigned char collision;

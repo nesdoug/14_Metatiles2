@@ -96,21 +96,18 @@ void load_room(void){
 void draw_sprites(void){
 	// clear all sprites from sprite buffer
 	oam_clear();
-
-	// reset index into the sprite buffer
-	sprid = 0;
 	
 	// draw 1 metasprite
 	if(direction == LEFT) {
-		sprid = oam_meta_spr(BoxGuy1.x, BoxGuy1.y, sprid, RoundSprL);
+		oam_meta_spr(BoxGuy1.x, BoxGuy1.y, RoundSprL);
 	}
 	else{
-		sprid = oam_meta_spr(BoxGuy1.x, BoxGuy1.y, sprid, RoundSprR);
+		oam_meta_spr(BoxGuy1.x, BoxGuy1.y, RoundSprR);
 	}
 	
 	if(stick){
-		//oam_spr(unsigned char x,unsigned char y,unsigned char chrnum,unsigned char attr,unsigned char sprid);
-		sprid = oam_spr(BoxGuy1.x+0x0f, BoxGuy1.y, 0x04, 0, sprid);
+		//oam_spr(unsigned char x,unsigned char y,unsigned char chrnum,unsigned char attr);
+		oam_spr(BoxGuy1.x+0x0f, BoxGuy1.y, 0x04, 0);
 	}
 }
 	
