@@ -35,13 +35,14 @@ unsigned int scroll_x;
 unsigned int scroll_y;
 signed int hero_velocity_x; // signed, low byte is sub-pixel
 signed int hero_velocity_y;
-unsigned int hero_x;
-unsigned int hero_y;
-unsigned char L_R_switch;
-unsigned char old_x;
-unsigned char old_y;
+//unsigned int hero_x;
+//unsigned int hero_y;
+//unsigned char L_R_switch;
+unsigned int old_x;
+unsigned int old_y;
 unsigned char stick;
-
+unsigned char temp_x;
+unsigned char temp_y;
 
 
 #pragma bss-name(push, "BSS")
@@ -59,11 +60,11 @@ struct Base {
 struct Base Generic;
 
 struct BoxGuy {
-	unsigned char x;
-	unsigned char y;
+	unsigned int x;
+	unsigned int y;
 };
 
-struct BoxGuy BoxGuy1 = {0x40,0x30};
+struct BoxGuy BoxGuy1 = {0x4000,0x3000};
 // the width and height should be 1 less than the dimensions (16x16)
 // ...I shrunk it a bit 14x14 hitbox
 // note, I'm using the top left as the 0,0 on x,y
@@ -113,8 +114,13 @@ const unsigned char metatiles1[]={
 // PROTOTYPES
 void load_room(void);
 void draw_sprites(void);
-void movement(void);
-void bg_collision(void);	
-void bg_collision_sub(void);
+void movement(void);	
+char bg_collision_sub(void);
+
+char bg_coll_L(void);
+char bg_coll_R(void);
+char bg_coll_U(void);
+char bg_coll_D(void);
+
 void break_wall(void);
 
